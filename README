@@ -1,0 +1,14 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1692
+
+This is a plugin that lets you view multiple log files or any files of interest that are modified externally. The files are opened in read 
+only mode.
+
+:TailView /tmp/foo /var/log/bar ...
+
+will open as many new tabs as files and you can update the file from disk using the 
+<Ctrl-K> keypress in normal mode. Also when you swich tabs using the gt command the file gets updated from disk automatically.
+
+Of course you can use the TAB key to complete file names.
+
+Normal vim usage is not affected in any way. Only files opened with the TailView command are in read only mode and updated from disk
+automatically when you enter that tab
