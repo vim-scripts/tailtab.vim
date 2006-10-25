@@ -45,7 +45,7 @@ endif
 
 let s:TailViewFiles = { }
 
-function! s:UpdateView() 
+function! s:UpdateView()
 	if has_key(s:TailViewFiles,bufname('%'))
 		exe 'view %'
 	endif
@@ -54,6 +54,8 @@ endfunction
 function! s:TailUpdate(file)
 	tabnew
 	exe 'view'. a:file
+	nmap <buffer> <c-k> :view %<CR>
+
 endfunction
 
 function! s:TailView(arg,...)
@@ -67,6 +69,5 @@ function! s:TailView(arg,...)
 	endwhile
 endfunction
 
-noremap  :view %<CR> 
 autocmd! BufEnter * call s:UpdateView()
 command! -nargs=* -complete=file TailView call s:TailView(<f-args>)
